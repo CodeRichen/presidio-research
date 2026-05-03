@@ -313,7 +313,10 @@ class InputSample(object):
         conll = []
 
         if len(self.tokens) == 0:
-            self.tokens, self.tags = self.get_tags(model_version=tokenizer)
+            # 使用星號 (*) 接住所有可能多出來的值
+            res = self.get_tags(model_version=tokenizer)
+            self.tokens = res[0]
+            self.tags = res[1]
 
         for i, token in enumerate(self.tokens):
             if translate_tags:
