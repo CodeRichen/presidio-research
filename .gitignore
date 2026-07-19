@@ -115,7 +115,12 @@ venv.bak/
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
-app/output
+
+app/model-best/
+app/output/
+model-best/
+output/
+
 .vscode
 
 debug.test
