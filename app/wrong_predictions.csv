@@ -1,0 +1,3 @@
+id,text,gold,predict
+83,const stripe = require('stripe')('sk_live_YaZnB8xPwySCjWABufwhCf5M');,"[('M', 'API_KEY')]","[(""require('stripe')('sk_live_YaZnB8xPwySCjWABufwhCf5M"", 'API_KEY')]"
+142,The API key hv3ZkQvvGI3vbU1GSYmZEkRcT8fxRLb4 should not be shared,"[('hv3ZkQvvGI3vbU1GSYmZEkRcT8fxRLb4', 'API_KEY')]",[]

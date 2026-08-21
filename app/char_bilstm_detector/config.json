@@ -1,0 +1,9 @@
+{
+  "char_embed_dim": 16,
+  "char_hidden_dim": 32,
+  "sent_hidden_dim": 32,
+  "num_labels": 2,
+  "max_char_length": 64,
+  "pad_id": 0,
+  "unk_id": 1
+}

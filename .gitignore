@@ -120,7 +120,7 @@ app/model-best/
 app/output/
 model-best/
 output/
-
+venvpr
 .vscode
 
 debug.test
