@@ -1,2 +1,0 @@
-cd github-star/presidio-research
-.\venvpr\Scripts\Activate.ps1

@@ -1,0 +1,166 @@
+John Smith recently moved from Boston to New York because he accepted a new position at Microsoft and will start working at the company's Manhattan office next month.	YES
+I spent most of the weekend cleaning my apartment, watching movies, ordering food, and reading a book that I had bought several months ago.	NO
+Sarah told her manager that she would be attending a conference in London next Tuesday and would probably stay near the airport for three nights.	YES
+The new restaurant opened last weekend and received several positive reviews from customers who particularly enjoyed the seafood dishes and desserts.	NO
+Michael Johnson sent an email to his colleague explaining that he would be unavailable during the afternoon because he had an appointment in Chicago.	YES
+The development team finished implementing the new search feature and plans to begin testing it with a small group of users tomorrow morning.	NO
+Emily Wilson currently lives in San Francisco and works for Google as a software engineer, although she is considering moving to Seattle next year.	YES
+The weather forecast says that temperatures will remain relatively mild throughout the week, with occasional rain expected during the evenings.	NO
+David Brown was born in California and recently traveled to Tokyo for a business meeting with several representatives from Sony and other technology companies.	YES
+Our team usually meets every Monday morning to discuss project progress, review outstanding tasks, and decide which features should be developed next.	NO
+Robert Miller said that his new office is located at 125 Main Street in Denver, where he recently started working for Amazon after moving from Texas.	YES
+The library will remain open until nine o'clock tonight so that students can finish their assignments before the end of the semester.	NO
+Jessica Davis contacted the customer support department using her personal email address jessica.davis@example.com because she was unable to access her account.	YES
+I usually prepare breakfast at home before going to work, and on weekends I sometimes visit a nearby cafe with my friends.	NO
+William Anderson is planning to visit Paris in July and will meet his brother James at Charles de Gaulle Airport before traveling to the city center.	YES
+The software update includes several performance improvements, bug fixes, and changes to the application's user interface.	NO
+Daniel Thomas told the doctor that he had recently moved to Los Angeles and was looking for a new medical clinic near his home.	YES
+The company announced that its annual meeting will be held in the main conference room and all employees are encouraged to attend.	NO
+Jennifer Martinez works at Apple in Cupertino and recently received an invitation to attend a private event organized by the company.	YES
+I bought a new keyboard last week because the old one had several broken keys and was becoming increasingly difficult to use.	NO
+Christopher Taylor traveled from Miami to Washington last Friday to attend a meeting with representatives from the federal government.	YES
+The students spent the afternoon working together on a science project and presented their results to the class before going home.	NO
+Amanda Wilson mentioned that her father Robert Wilson lives in Toronto and recently retired from his position at IBM after more than thirty years.	YES
+The restaurant changes its menu every season and usually introduces several new dishes based on locally available ingredients.	NO
+Matthew Harris received a letter from his bank regarding a recent transaction and called the customer service department to ask for more information.	YES
+The application allows users to create multiple projects, organize files into folders, and share documents with other members of their team.	NO
+Elizabeth Clark said that she would be staying at the Hilton Hotel in London while attending a conference organized by her company.	YES
+The museum has a large collection of paintings from different periods and offers guided tours for visitors throughout the week.	NO
+Andrew Lewis recently purchased a house in Seattle and is planning to move there with his wife and children later this summer.	YES
+Our programming class focuses on Python, data structures, algorithms, and practical software development techniques.	NO
+Sophia Walker sent her passport information to the travel agency because she needed to arrange a flight from New York to Rome.	YES
+The team decided to postpone the meeting until Friday because several important members were unavailable on Wednesday.	NO
+James Hall works for Tesla in Austin and frequently travels to Palo Alto to attend meetings with other engineers.	YES
+I usually spend my evenings listening to music, exercising, or playing games with friends online.	NO
+Olivia Allen told her lawyer that she had recently moved to Washington and needed assistance with several documents related to her new apartment.	YES
+The website received a large number of visitors after the company published an article describing its new product.	NO
+Benjamin Young is currently studying at Harvard University in Cambridge and plans to return to his hometown in California during the winter break.	YES
+The computer stopped working yesterday, so I restarted it and installed the latest operating system updates.	NO
+Charlotte King emailed her employer from charlotte.king@example.com and explained that she would be working remotely from Seattle for two weeks.	YES
+The conference organizers prepared several workshops covering machine learning, natural language processing, and software engineering.	NO
+Henry Wright recently met with Sarah Johnson at the New York office of Goldman Sachs to discuss a potential investment opportunity.	YES
+The park is especially beautiful in the morning when the temperature is cool and there are fewer visitors around the walking paths.	NO
+Grace Scott said that her phone number is 415-555-0182 and asked the receptionist to contact her if the appointment time changed.	YES
+The bookstore is offering discounts on selected novels, textbooks, and children's books throughout the month.	NO
+Samuel Green traveled to Berlin last month and stayed at a hotel near the Brandenburg Gate while attending a technology conference.	YES
+The engineering team discovered a small problem in the latest release and expects to publish a fix within the next few days.	NO
+Chloe Baker works for Meta in Menlo Park and recently moved to the area after accepting a new position on the company's research team.	YES
+I went shopping yesterday and bought a jacket, two shirts, and a pair of shoes for the upcoming winter season.	NO
+Daniel Moore told his insurance company that he currently lives at 42 Oak Avenue in Dallas and recently purchased a new car.	YES
+The teacher asked everyone in the class to submit their assignments before Friday afternoon so that they could be graded over the weekend.	NO
+Liam Carter visited his doctor in Boston last week and provided his full name and date of birth when checking in at the reception desk.	YES
+The new game has several different difficulty levels, allowing beginners and experienced players to choose an appropriate challenge.	NO
+Mia Mitchell works at Netflix in Los Gatos and said that she might relocate to Los Angeles if the company approves her transfer.	YES
+The conference room has enough chairs for everyone, and the organizers have prepared water and coffee for the participants.	NO
+Alexander Perez sent an invoice to his client from alex.perez@example.com and requested payment within thirty days.	YES
+I usually walk to the supermarket because it is only a few blocks from my apartment and the weather is often pleasant.	NO
+Ella Roberts recently traveled to Rome, where she visited the Colosseum, Vatican City, and several other historical landmarks.	YES
+The software documentation explains how to install the application, configure the database, and start the development server.	NO
+Noah Turner told his employer that he would be moving from Phoenix to Denver and would need assistance transferring his office equipment.	YES
+The children spent the afternoon playing soccer in the park while their parents sat nearby and talked about their plans for the weekend.	NO
+Ava Phillips received a message at ava.phillips@example.com confirming her reservation at a hotel in Paris for next month.	YES
+The company is currently hiring several developers and designers to work on its new mobile application.	NO
+Ethan Campbell works for Intel in Santa Clara and frequently travels to San Jose for meetings with the engineering department.	YES
+I watched a documentary about space exploration last night and found the discussion about future missions particularly interesting.	NO
+Isabella Parker told her bank that she lives in Chicago and recently noticed an unfamiliar transaction on her account.	YES
+The website provides tutorials covering programming fundamentals, web development, databases, and cloud computing.	NO
+Lucas Evans recently moved to Portland and started working for Nike after completing his degree at the University of Oregon.	YES
+The restaurant was crowded on Saturday evening, but the staff handled the large number of customers efficiently.	NO
+Amelia Edwards sent her travel documents to a company representative named Michael Brown before her flight to Madrid.	YES
+The operating system update fixed several security problems and improved compatibility with recently released hardware.	NO
+Mason Collins lives in Houston and works for ExxonMobil, where he is responsible for managing several large engineering projects.	YES
+I spent the morning organizing my files and deleting old documents that I no longer needed.	NO
+Harper Stewart provided her email address harper.stewart@example.com when registering for the online conference in Toronto.	YES
+The school announced that the summer vacation will begin in June and continue until the end of August.	NO
+Logan Sanchez recently met with representatives from Microsoft in Redmond to discuss a possible partnership between the two companies.	YES
+The application stores configuration settings locally and automatically creates a backup whenever the user changes important options.	NO
+Evelyn Morris said that she was born in Florida and currently lives in Atlanta with her family.	YES
+The hiking trail takes approximately three hours to complete and passes through several areas of dense forest.	NO
+Jacob Rogers contacted his insurance provider and gave them his policy number while discussing an accident that happened last weekend.	YES
+The new laptop has a faster processor, more memory, and a larger storage drive than the previous model.	NO
+Abigail Reed works at Amazon Web Services in Seattle and is planning to attend a developer conference in San Francisco next month.	YES
+The team spent several weeks testing the application before releasing the final version to the public.	NO
+Michael Cook told the hotel receptionist that his reservation was under the name Michael Cook and that he would arrive in London on Friday evening.	YES
+The museum will host an exhibition about modern art throughout the summer and visitors can purchase tickets online.	NO
+Emily Morgan recently sent her bank account information to a financial advisor in New York while arranging an international transfer.	YES
+The students are preparing presentations about climate change, renewable energy, and environmental protection for their science class.	NO
+William Bell works at SpaceX in Hawthorne and recently participated in a meeting about a new satellite project.	YES
+The company plans to release a major software update later this year after completing several rounds of testing.	NO
+Sofia Murphy lives in Vancouver and traveled to San Francisco last month to meet with employees from Salesforce.	YES
+The cafe serves coffee, tea, sandwiches, cakes, and several vegetarian dishes throughout the day.	NO
+Jackson Bailey told his employer that his new address is 18 Maple Road in Boston and asked them to update his records.	YES
+The development team uses GitHub to manage source code and track issues reported by users.	NO
+Victoria Rivera received an email from her doctor confirming an appointment scheduled for Monday morning in Miami.	YES
+The book describes the history of computing and explains how modern programming languages evolved over time.	NO
+Sebastian Cooper works for Oracle in Redwood City and will travel to New York next week for an internal company meeting.	YES
+The weather became colder during the evening, so we decided to stay inside and watch a movie.	NO
+Camila Richardson provided her full name, home address, and telephone number when completing the application form.	YES
+The new restaurant is located near the train station and is expected to become popular with local residents.	NO
+David Cox recently visited his dentist in Austin and scheduled another appointment for next month.	YES
+The program can process large files efficiently and provides detailed logs whenever an error occurs.	NO
+Lily Howard told her employer that she would be traveling to Singapore for a business meeting with several international clients.	YES
+I spent most of Sunday preparing meals for the week and organizing the kitchen before going to bed.	NO
+Joseph Ward works for IBM in New York and recently received a promotion after completing an important project.	YES
+The new camera produces high-quality images and includes several automatic shooting modes for beginners.	NO
+Madison Torres sent a message from madison.torres@example.com confirming that she would attend the meeting in Los Angeles.	YES
+The conference will include talks about artificial intelligence, robotics, cybersecurity, and future computing technologies.	NO
+Carter Peterson recently moved to San Diego and started working for Qualcomm after accepting a position as a hardware engineer.	YES
+The application can automatically synchronize files between multiple devices and notify users when conflicts occur.	NO
+Eleanor Gray told her travel agent that she would be flying from Toronto to Paris on August 30 and returning two weeks later.	YES
+The library recently added several new computers and upgraded its wireless network to improve access for students.	NO
+Wyatt Ramirez works for Adobe in San Jose and frequently communicates with designers and developers around the world.	YES
+The team finished the project ahead of schedule and celebrated by having dinner together at a nearby restaurant.	NO
+Penelope James provided her identification information to the hotel when checking in after arriving in Madrid.	YES
+The course teaches students how to design websites, write clean code, test applications, and deploy software to production.	NO
+Gabriel Watson lives in New York and works for Bloomberg, where he analyzes financial information for institutional clients.	YES
+The company has announced several improvements to its customer support system and plans to hire additional staff.	NO
+Hannah Brooks recently contacted her bank after noticing an unusual charge on her credit card statement.	YES
+The weather was perfect for a long walk, so we spent the afternoon exploring the neighborhood and taking photographs.	NO
+Dylan Kelly works at Boeing in Seattle and recently traveled to Washington, D.C. to attend a government meeting.	YES
+The software team plans to improve the application's performance and reduce the amount of memory required by the next release.	NO
+Nora Sanders told her doctor that she would be traveling from Chicago to New York and needed to reschedule her appointment.	YES
+The children built a small model using cardboard, paper, glue, and several other materials they found at home.	NO
+Owen Price recently joined Google in Mountain View after working for a smaller technology company in San Diego.	YES
+The website contains articles about history, science, technology, literature, and many other educational subjects.	NO
+Layla Bennett sent her contact information to a recruiter at Microsoft after seeing a job advertisement online.	YES
+The team meets every Friday afternoon to review completed tasks and discuss priorities for the following week.	NO
+Grayson Wood lives in Denver and recently purchased a new apartment near the city center.	YES
+The application has a simple interface that allows users to create, edit, and organize their documents.	NO
+Riley Barnes told the airline that she would be traveling from Los Angeles to Tokyo on September 12 and would need assistance at the airport.	YES
+The restaurant offers several vegetarian options and changes its daily specials depending on the ingredients available that morning.	NO
+Leo Ross works for Tesla in Palo Alto and recently attended a meeting with Elon Musk about a new vehicle project.	YES
+The computer science department is organizing a workshop about machine learning and natural language processing next semester.	NO
+Stella Henderson provided her home address in Seattle when signing the rental agreement for her new apartment.	YES
+The new version of the application includes a redesigned dashboard and several improvements to navigation.	NO
+Mateo Coleman recently visited London and stayed at the Marriott Hotel near Heathrow Airport during his business trip.	YES
+The students completed their final exams and are now preparing for the summer vacation.	NO
+Lucy Jenkins works for Apple in Cupertino and recently traveled to New York to meet with the company's marketing team.	YES
+The project documentation explains the installation process and provides examples for common configuration scenarios.	NO
+Lincoln Perry told his employer that his new office would be located at 200 Market Street in San Francisco.	YES
+The team decided to use a simpler architecture because it would be easier to maintain and test in the long term.	NO
+Paisley Powell recently emailed her lawyer from paisley.powell@example.com about an upcoming appointment in Chicago.	YES
+The museum offers free admission on certain days and provides educational programs for children and adults.	NO
+Julian Long works for NVIDIA in Santa Clara and is currently helping develop software for a new graphics processor.	YES
+I spent the evening cooking dinner, listening to music, and cleaning the apartment before going to sleep.	NO
+Naomi Patterson told the hotel that her reservation was under the name Naomi Patterson and that she would arrive in Rome on Monday.	YES
+The application automatically saves user preferences and restores them the next time the program is launched.	NO
+Adrian Hughes recently moved from Dallas to Austin and started working for Dell Technologies as a software developer.	YES
+The book contains several chapters explaining the basics of programming and includes exercises at the end of each chapter.	NO
+Savannah Flores provided her phone number 212-555-0147 when registering for the conference in New York.	YES
+The conference organizers will publish the final schedule online after confirming the availability of all speakers.	NO
+Christopher Washington works for JPMorgan Chase in New York and recently traveled to London for a financial meeting.	YES
+The application is designed to run on multiple operating systems and supports both desktop and mobile devices.	NO
+Aria Butler told her insurance company that she currently lives in Phoenix and recently filed a claim after an accident.	YES
+The park has several walking paths, a playground, and a large open area where visitors can relax during the afternoon.	NO
+Thomas Simmons recently sent his passport number and travel information to a visa processing service in Washington.	YES
+The software automatically checks for updates and notifies users when a newer version becomes available.	NO
+Quinn Foster works at Salesforce in San Francisco and is planning to visit the company's New York office next month.	YES
+The students worked together to build a small robot and demonstrated it during the school's annual technology exhibition.	NO
+Isla Gonzales provided her email address isla.gonzales@example.com and home address when completing the registration form.	YES
+The company is testing a new scheduling system that should make it easier for employees to arrange meetings.	NO
+Cooper Bryant recently moved to Portland and began working at Intel after receiving a position in the research department.	YES
+The weather was cloudy throughout the day, but there was very little rain and temperatures remained comfortable.	NO
+Maya Alexander told her doctor that she lives in Boston and would like to schedule an appointment for next Thursday.	YES
+The new software release includes performance improvements and fixes several issues reported by users.	NO
+Hudson Russell works for Microsoft in Redmond and recently attended a conference in Seattle with several colleagues.	YES
+The restaurant was busy during the evening, but we found a table and enjoyed dinner without having to wait very long.	NO

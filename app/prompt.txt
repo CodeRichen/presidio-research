@@ -1,0 +1,249 @@
+cd github-star/presidio-research
+.\venvpr\Scripts\Activate.ps1
+pip install presidio-analyzer presidio-anonymizer pyperclip pywin32
+
+還有其他除硬體外的加速方法?
+撰寫後處理邏輯，檢查 Entity 周圍 $N$ 個 Token 是否包含 Context Words，若有則通過，若無則提高判定門檻
+帶有專有名詞、特定客服對話格式的文本），對 zh_core_web_sm 進行微調（Fine-tune）
+# 只啟用 NER，加速 2~3 倍
+doc = nlp("文本...", disable=["tagger", "parser", "attribute_ruler", "lemmatizer"])
+建立快取 (Cache / Bloom Filter)：若重複字串出現過，直接吐出歷史標記結果
+讓一個小模型（Student）去學習大模型（Teacher）的輸出機率分佈
+在編譯階段提前算完固定的權重常數
+train.jsonl
+    ↓
+自動建立 Character Vocabulary
+    ↓
+Character Embedding
+    ↓
+Char BiLSTM
+    ↓
+每個 Token → Word Vector
+    ↓
+Sentence BiLSTM
+    ↓
+Token Classification
+    ↓
+0 / 1
+
+在維持 PII Detection F1 的前提下，降低 Inference Latency / Throughput 提升。
+不要讓 Transformer 處理所有文字模型是如何把一句話換算成token的某些情緒和問題無關的謝謝之類的話可不可以讓他不要變成token我想做一個攔截器
+可不可以先用其他的a i或者計算的方法找出某些詞和整體的相關性太低的就把它剔除掉
+s
+【原始句子】: 老實說，這部電影真的非常難看又無聊，但是那裡的餐點還算可以。
+【斷詞後保留的詞】: ['實說', '這部', '電影', '真的', '難', '無聊', '裡', '餐點', '還算']
+【重構後的關鍵句子】: 實說 這部 電影 真的 難 無聊 裡 餐點 還算
+但應該變成:  電影 難看 無聊 餐點 可以
+
+將有意義以外的文字都看多敏感資訊來訓練模型，辨識長文章是否有此字，是否能縮小模型，如何開始?
+把資料標記成：
+
+```
+0 = 無關文字
+```
+
+1 = 重要／目標資訊
+
+例如：
+
+```
+今天 天氣 很好
+```
+
+0    0    0
+
+
+
+
+密碼 是 ABC123
+
+0    0  1
+
+這樣模型會學：
+
+```
+長文章
+```
+
+   ↓
+
+Tokenizer
+
+   ↓
+
+每個 Token 判斷
+
+   ↓
+
+0 0 0 0 1 1 1 1
+
+最後只保留：
+
+```
+ABC123
+
+```
+給我生成資料的code至少：
+
+1000 筆
+
+先讓程式能完整跑通。
+
+真正要有泛化能力，通常需要更多，而且重要資訊的類型要足夠多樣。
+
+例如不要全部都是：
+
+ABC123
+DEF456
+XYZ999
+
+最好混合：
+
+ABC123
+test_user_777
+sk-abcdef123456
+ID-A92XK7
+A1B2-C3D4
+
+以及不同上下文：
+
+密碼是 ABC123
+請記住 ABC123
+代碼 ABC123 已失效
+使用者輸入了 ABC123
+
+
+如何查看模型大小?改成輸入txt並測試時間
+某些資料夾不用掃描，該如何改
+!python -m spacy download en_core_web_trf
+!python -m spacy download en_core_web_lg 
+CodeBERT回答速度差別原因
+
+輸入資料夾，用Regex掃描所有文字包含: 
+Email
+IPv4 / IPv6
+URL
+MAC Address
+API Key（OpenAI、AWS、GitHub、Google 等）
+JWT
+SHA1 / SHA256 Hash
+信用卡
+台灣身分證字號
+電話號碼
+做成容易增減涵蓋規則的樣式，不使用
+parse_args只需要輸入路徑和輸出解果
+
+
+提高en_core_web_lg正確率
+
+en_core_web_trf：仍使用 spaCy，直接換成 Transformer Encoder。
+CodeBERT：改用 Hugging Face 的 Token Classification 流程，對程式碼 NER 通常更有優勢。
+
+有沒有比en_core_web_lg大小差不多，但更適合的模型
+為何我增加了負樣本的比例，code中大量非apikey說成apikey的機率反而上升?
+
+改成:分段讀舉資料夾中程式碼檔案，每一行單獨辨識，都標記為非API_KEY 負樣本
+分段讀取，每一行單獨辨識
+這是訓練資料，模型辨識時將code中大量非apikey說成apikey
+
+訓練資料加入apikey使其能辨識程式碼中的apikey
+訓練資料裡面的API key必須要是在程式碼片段出現的也就是會有引號變數格式等等必須要加入到訓練資料裡面
+
+模型大小:443MB
+
+有無最新論文研究如何提升訓練效果，或縮小模型容量
+學習率? tok2vec?Transformer 架構速度會慢上數倍至數十倍?
+後期震盪加入 learning rate decay，或改用 cyclic scheduleloss 波動大增加資料量，或調小 batch_size 讓梯度更穩定想要更高 F1換成 Transformer 架構（en_core_web_trf + BERT）
+
+E    #       LOSS TOK2VEC  LOSS NER  ENTS_F  ENTS_P  ENTS_R  SCORE 
+---  ------  ------------  --------  ------  ------  ------  ------
+  0       0          0.00     63.09    0.00    0.00    0.00    0.00
+  1     200        291.76   3250.90   59.42   59.58   59.27    0.59
+  2     400        128.98   1864.17   66.19   67.58   64.86    0.66
+  3     600        136.60   1251.93   59.27   61.74   56.99    0.59
+  5     800         81.38    751.31   68.89   67.56   70.28    0.69
+  8    1000        140.16    540.56   64.35   63.86   64.86    0.64
+ 11    1200         76.71    250.14   68.35   65.75   71.15    0.68
+ 15    1400         79.42    184.10   69.84   70.46   69.23    0.70
+ 19    1600         23.01     46.06   64.49   65.01   63.99    0.64
+ 25    1800         62.66     95.69   68.37   68.92   67.83    0.68
+ 32    2000         97.52     89.38   72.15   72.99   71.33    0.72
+ 40    2200        208.46    177.11   67.01   65.07   69.06    0.67
+ 50    2400        125.06    119.36   69.10   68.62   69.58    0.69
+ 61    2600        264.20    231.11   68.05   70.54   65.73    0.68
+ 71    2800         22.54     20.41   70.29   71.77   68.88    0.70
+ 82    3000        164.58    104.42   70.73   72.48   69.06    0.71
+ 92    3200         30.29     19.85   67.12   65.29   69.06    0.67
+103    3400       3574.19   1784.02   66.96   66.61   67.31    0.67
+113    3600        269.91    167.77   74.62   76.61   72.73    0.75
+124    3800         64.47     37.97   74.86   78.76   71.33    0.75
+134    4000        128.55     41.30   75.55   79.01   72.38    0.76
+145    4200         27.94     15.60   74.62   77.20   72.20    0.75
+155    4400        186.96     82.07   73.30   75.98   70.80    0.73
+166    4600         49.42     19.80   71.33   70.48   72.20    0.71
+176    4800         27.84     11.33   73.02   71.79   74.30    0.73
+187    5000         34.17     17.82   75.27   77.21   73.43    0.75
+197    5200       4244.48    834.29   67.01   65.07   69.06    0.67
+208    5400        521.58    276.83   73.32   71.55   75.17    0.73
+219    5600       1008.80    270.04   73.55   72.98   74.13    0.74
+
+他是如何訓練?
+是否能避免給定敏感資訊如姓名，從網路上偵測+攔截，防止傳輸離開本地
+如何防止惡意軟體讀取
+Endpoint Detection and Response
+Minifilter Driver
+Protected Process Light (PPL)
+Credential Guard
+VBS（Virtualization-Based Security）
+讀取這個資料夾當中的檔案並且
+
+給我pycode程式能夠呼叫microsoft Presidio在程式執行的時候讀取windos複製信息，屏蔽特定文字，並且如果貼上的話就把敏感訊息替換成相對應的標籤也就等于說復制到windows剪貼簿裡面
+并且將標簽和敏感資訊的對應存成一個txt檔案
+如果有所以剛剛在讀取復制信息屏蔽的時候如果有發現標簽那麼這一次復制的所有信息就不會包含敏感訊息那就不需要去掃描它而是對叫txt檔案標，將所有的標簽替換成敏感資訊然後再復制到windows剪貼簿裡面
+程式碼不要有冗余總行數不要太多未來方便我可以替換成自己或是增加多重過濾器的方式
+
+我希望能夠在終端機輸出實時監測電腦現在讀取的所有檔案給我程式碼
+如果我希望用準備好的中文資料自己訓練並且結合到程式碼裡面我該怎麼做
+直接拿這份英文資料訓練，之後配合英文剪貼簿內容使用
+在程式執行期間的每一次複製都要處理之後在覆蓋原先的複製當我再貼上的時候就處理完成，而且要print相關的信息詳細的資料
+只使用我自己訓練的模型
+給我.py
+
+   {
+        "full_text": "Can I withdraw cash using my card 4163759580367478 at aTM center ?",
+        "masked": "Can I withdraw cash using my card {{CREDIT_CARD}} at aTM center ?",
+        "spans": [
+            {
+                "entity_type": "CREDIT_CARD",
+                "entity_value": "4163759580367478",
+                "start_position": 34,
+                "end_position": 50,
+                "normalized_tokens": null,
+                "normalized_start_index": null,
+                "normalized_end_index": null,
+                "token_start": null,
+                "token_end": null
+            }
+        ],
+        "template_id": 18,
+        "metadata": null
+    }
+
+from presidio_evaluator import InputSample
+
+train_samples = InputSample.read_dataset_json("../data/train_May-04-2026.json")
+test_samples = InputSample.read_dataset_json("../data/test_May-04-2026.json")
+
+print(f"train: {len(train_samples)} 筆")
+print(f"test: {len(test_samples)} 筆")
+
+# 檢查前幾筆有沒有正常解析
+for s in train_samples[:2]:
+    print(s.full_text)
+    print(s.tags)
+    print("---")
+InputSample.create_spacy_dataset(train_samples, output_path="train_en.spacy")
+InputSample.create_spacy_dataset(test_samples, output_path="dev_en.spacy")
+用這種方法所輸出的spacy資料會是正確的格式嗎
+
+閱讀路徑的上一層當中notebooks資料夾當中的教學是否有方法可以正確

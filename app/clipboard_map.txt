@@ -1,0 +1,14 @@
+<URL_1>	Activate.ps
+<PERSON_1>	cd github-star
+<URL_2>	mail.nuk.edu.tw
+<EMAIL_ADDRESS_1>	A1125515@mail.nuk.edu.tw
+<PERSON_2>	A1125515@mail.nuk.edu.tw      Hh126180627
+<US_DRIVER_LICENSE_1>	A1125515
+<URL_3>	gmail.com
+<EMAIL_ADDRESS_2>	kaohsiunguniversity@gmail.com
+<EMAIL_ADDRESS_3>	sevenseven202077@gmail.com
+<EMAIL_ADDRESS_4>	dancesongwithme@gmail.com
+<EMAIL_ADDRESS_5>	testjapan3939@gmail.com
+<EMAIL_ADDRESS_6>	lichengxing269@gmail.com
+<EMAIL_ADDRESS_7>	richen0988322295@gmail.com
+<US_DRIVER_LICENSE_2>	A11255152
