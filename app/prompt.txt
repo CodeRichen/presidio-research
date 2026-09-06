@@ -1,6 +1,8 @@
 cd github-star/presidio-research
 .\venvpr\Scripts\Activate.ps1
-pip install presidio-analyzer presidio-anonymizer pyperclip pywin32
+
+$env:OLLAMA_MODELS="D:\tools"
+ollama list
 
 還有其他除硬體外的加速方法?
 撰寫後處理邏輯，檢查 Entity 周圍 $N$ 個 Token 是否包含 Context Words，若有則通過，若無則提高判定門檻
