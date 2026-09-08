@@ -1,8 +1,11 @@
-cd github-star/presidio-research
+cd D:\2.programm2\github-star\presidio-research
 .\venvpr\Scripts\Activate.ps1
+cd test
 
-$env:OLLAMA_MODELS="D:\tools"
-ollama list
+
+在復制完訊息之後將所有訊息跑到這個模型當中裡面先做一個初步的分類在原先的判斷基礎上如果訊息當中的某一段文字設備檢測是城市碼那他隻需要拍是否有a p i
+是否有電腦路徑等正則式的比對那如果它不是程式碼那需要跑其他正則是像是電話號碼信用卡身份證以及使用microsoft模型
+所以隻是判斷的條件改了其他東西不變一樣會敏感資訊屏蔽掉之後把它放到剪貼簿上面
 
 還有其他除硬體外的加速方法?
 撰寫後處理邏輯，檢查 Entity 周圍 $N$ 個 Token 是否包含 Context Words，若有則通過，若無則提高判定門檻
