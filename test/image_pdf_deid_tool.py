@@ -103,6 +103,39 @@ RULES = [
 ]
 _COMPILED = [(r.name, re.compile(r.pattern, r.flags), r.validator) for r in RULES]
 
+# 每種標籤對應的「遮蔽理由」，印出來給使用者確認為什麼這塊會被塗黑
+REASONS = {
+    "EMAIL": "符合電子郵件格式",
+    "TW_PHONE": "符合台灣手機號碼格式 (09xx-xxx-xxx)",
+    "TW_ID": "符合台灣身分證字號格式 (1 碼英文字母 + 9 碼數字)",
+    "CREDIT_CARD": "符合信用卡卡號格式，且通過 Luhn 演算法驗證",
+    "JWT": "符合 JWT Token 格式 (eyJ... 開頭的三段式字串)",
+    "API_KEY_OPENAI": "符合 OpenAI API Key 格式 (sk- 開頭)",
+    "API_KEY_AWS": "符合 AWS Access Key 格式 (AKIA/ASIA 開頭)",
+    "API_KEY_GITHUB": "符合 GitHub Token 格式 (ghp_/gho_ 等開頭)",
+    "API_KEY_GOOGLE": "符合 Google API Key 格式 (AIza 開頭)",
+    "URL": "偵測到完整網址",
+    "CREDENTIAL_LIKE": "疑似帳號/密碼風格字串 (英數混合，長度 8~29)",
+    "GENERIC_SECRET": "疑似長亂碼密鑰 (英數混合，長度 30 以上)",
+}
+
+
+def get_reason(label: str) -> str:
+    """回傳某個標籤的遮蔽理由；不在 REASONS 裡的都是 Presidio NLP 模型判定出來的類型"""
+    return REASONS.get(label, f"Presidio NLP 模型判定為「{label}」類型")
+
+
+def print_masked_entries(entries: list, source_label: str):
+    """把這次遮蔽的內容 (原始文字 + 理由) 印出來，方便使用者確認"""
+    if not entries:
+        print(f"[{source_label}] 未偵測到需要遮蔽的內容")
+        return
+    print(f"[{source_label}] 共遮蔽 {len(entries)} 處：")
+    for e in entries:
+        page_info = f"第 {e['page'] + 1} 頁 " if "page" in e else ""
+        value = e.get("value", "(無法取得文字內容，僅有畫面截圖)")
+        print(f"  - {page_info}[{e['tag']}] 文字內容：「{value}」｜理由：{get_reason(e['label'])}")
+
 
 def _merge_overlaps(matches):
     """多個規則/模型比對到重疊區間時，只保留較長、彼此不重疊的那一個"""
@@ -164,9 +197,9 @@ def _group_lines(words: List[dict]) -> List[List[dict]]:
     return [sorted(v, key=lambda w: w["word_num"]) for v in lines.values()]
 
 
-def find_sensitive_boxes_in_words(words: List[dict]) -> List[Tuple[int, int, int, int, str]]:
+def find_sensitive_boxes_in_words(words: List[dict]) -> List[Tuple[int, int, int, int, str, str]]:
     """把每一行組成文字、跑 detect_matches()，再把命中範圍換算回涵蓋這些字的像素框
-    回傳 [(x0, y0, x1, y1, label), ...]（像素座標）"""
+    回傳 [(x0, y0, x1, y1, label, matched_text), ...]（像素座標）"""
     boxes = []
     for line_words in _group_lines(words):
         line_text, offsets = "", []
@@ -183,7 +216,7 @@ def find_sensitive_boxes_in_words(words: List[dict]) -> List[Tuple[int, int, int
             y0 = min(w["top"] for w in hit_words)
             x1 = max(w["left"] + w["width"] for w in hit_words)
             y1 = max(w["top"] + w["height"] for w in hit_words)
-            boxes.append((x0, y0, x1, y1, label))
+            boxes.append((x0, y0, x1, y1, label, line_text[start:end]))
     return boxes
 
 
@@ -220,11 +253,13 @@ def mask_image(input_path: str, output_path: str, map_file: str = DEFAULT_MAP_FI
 
     entries, counters = [], {}
     draw = ImageDraw.Draw(img)
-    for x0, y0, x1, y1, label in boxes:
+    for x0, y0, x1, y1, label, value in boxes:
         box = (x0 - MASK_PADDING, y0 - MASK_PADDING, x1 + MASK_PADDING, y1 + MASK_PADDING)
         counters[label] = counters.get(label, 0) + 1
         entries.append({
             "tag": f"{label}_{counters[label]}",
+            "label": label,
+            "value": value,
             "bbox": list(box),
             "crop_b64": _crop_to_png_b64(img, box),
         })
@@ -232,7 +267,8 @@ def mask_image(input_path: str, output_path: str, map_file: str = DEFAULT_MAP_FI
 
     img.save(output_path)
     _save_map_entry(map_file, os.path.basename(output_path), entries)
-    print(f"[圖片遮蔽完成] {input_path} -> {output_path}，共遮蔽 {len(entries)} 處")
+    print(f"[圖片遮蔽完成] {input_path} -> {output_path}")
+    print_masked_entries(entries, "圖片")
     return entries
 
 
@@ -285,6 +321,7 @@ def _mask_pdf_text_page(page: "fitz.Page", entries: list, counters: dict):
             crop_pix = page.get_pixmap(clip=rect, matrix=fitz.Matrix(2, 2), annots=False)
             entries.append({
                 "tag": f"{label}_{counters[label]}",
+                "label": label,
                 "page": page.number,
                 "bbox": [x0, y0, x1, y1],
                 "value": " ".join(w[4] for w in hit),
@@ -301,7 +338,7 @@ def _mask_pdf_scanned_page(page: "fitz.Page", entries: list, counters: dict, zoo
     img = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
     boxes = find_sensitive_boxes_in_words(ocr_words(img))
 
-    for x0, y0, x1, y1, label in boxes:
+    for x0, y0, x1, y1, label, value in boxes:
         px0, py0 = x0 - MASK_PADDING, y0 - MASK_PADDING
         px1, py1 = x1 + MASK_PADDING, y1 + MASK_PADDING
         # 像素座標 / zoom 換算回 PDF 座標
@@ -312,6 +349,8 @@ def _mask_pdf_scanned_page(page: "fitz.Page", entries: list, counters: dict, zoo
         buf = io.BytesIO(); crop.save(buf, format="PNG")
         entries.append({
             "tag": f"{label}_{counters[label]}",
+            "label": label,
+            "value": value,
             "page": page.number,
             "bbox": [rect.x0, rect.y0, rect.x1, rect.y1],
             "crop_b64": base64.b64encode(buf.getvalue()).decode("ascii"),
@@ -331,7 +370,8 @@ def mask_pdf(input_path: str, output_path: str, map_file: str = DEFAULT_MAP_FILE
     doc.save(output_path)
     doc.close()
     _save_map_entry(map_file, os.path.basename(output_path), entries)
-    print(f"[PDF 遮蔽完成] {input_path} -> {output_path}，共遮蔽 {len(entries)} 處")
+    print(f"[PDF 遮蔽完成] {input_path} -> {output_path}")
+    print_masked_entries(entries, "PDF")
     return entries
 
 
